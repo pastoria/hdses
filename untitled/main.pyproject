@@ -1,0 +1,3 @@
+{
+    "files": ["splash.py","resource.qrc","panelwidget.ui","panelwidget.py","mainwidget.ui","mainwidget.py","resource_rc.py","splash.ui","login.ui","login.py","notreadywidget.ui","notreadywidget.py"]
+}
