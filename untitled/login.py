@@ -31,6 +31,7 @@ class LoginThread(QThread):
         self.done.emit(ret)
         pass
 
+
 class LoginWidget(QWidget):
     LoginCompleted = pyqtSignal(int)
 
@@ -86,7 +87,7 @@ class LoginWidget(QWidget):
                 d = json.load(f)
                 try:
                     v = d['sync']['status']['framework']['version']
-                    self.label.setText(v)
+                    self.label_version.setText(v)
                 except:
                     pass
 
@@ -95,6 +96,9 @@ class LoginWidget(QWidget):
         fontFamily = fontInfoList[0]
         font = QtGui.QFont()
         font.setFamily(fontFamily)
+
+        self.label_version.setFont(font)
+
         font.setPixelSize(23)
 
         self.userLineEdit.setFont(font)
