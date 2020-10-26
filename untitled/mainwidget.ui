@@ -14,7 +14,9 @@
    <string>MainWidget</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">#widget_top, #widget_middle, #widget_bottom {
+	background: #35065a;
+}</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
    <property name="spacing">
@@ -40,7 +42,7 @@
      <item>
       <widget class="QWidget" name="widget_top" native="true">
        <property name="styleSheet">
-        <string notr="true">background: #35065a;</string>
+        <string notr="true"/>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
@@ -90,12 +92,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QWidget" name="widget_middle" native="true"/>
+      <widget class="QWidget" name="widget_middle" native="true">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QWidget" name="widget_bottom" native="true">
        <property name="styleSheet">
-        <string notr="true">background: #35065a;</string>
+        <string notr="true"/>
        </property>
       </widget>
      </item>

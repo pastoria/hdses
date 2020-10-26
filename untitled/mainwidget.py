@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QDesktopWidget, QMessageBox, 
 from PyQt5.QtCore import Qt, QFile, QCoreApplication, QTimer, QUrl, QThread, pyqtSignal
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices
-from panelwidget import PanelWidget
+from panelwidget import MainPanelWidget
 from notreadywidget import NotReadyWidget
 
 MAX_ROW = 6
@@ -25,9 +25,15 @@ class MainWidget(QWidget):
         for i in range(MAX_ROW*MAX_COL):
             row = i // MAX_COL
             col = i % MAX_COL
-            self.gridLayout.addWidget(PanelWidget(i+1), row, col)
+            self.gridLayout.addWidget(MainPanelWidget(i + 1, self), row, col)
 
         self.showMaximized()
+
+    def close_all_float_panels(self):
+        for i in range(self.gridLayout.count()):
+            widget = self.gridLayout.itemAt(i).widget()
+            if isinstance(widget, MainPanelWidget):
+                widget.close_float_panel()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
