@@ -18,18 +18,6 @@
    Color: #ffffff;
 }
 
-#label_number {
-	font-size: 24px;
-}
-
-#label_title {
-	font-size: 24px;
-}
-
-#label_desc {
-	font-size: 14px;
-}
-
 #widget_up {
 	background: #909090;
 }

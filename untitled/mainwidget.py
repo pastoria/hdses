@@ -1,17 +1,20 @@
 # This Python file uses the following encoding: utf-8
 import sys
 import os
+import random
 import resource_rc
 
 from PyQt5.QtWidgets import QApplication, QWidget, QDesktopWidget, QMessageBox, QGridLayout
 from PyQt5.QtCore import Qt, QFile, QCoreApplication, QTimer, QUrl, QThread, pyqtSignal
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices
+from basewidget import BaseWidget
 from panelwidget import MainPanelWidget
 from notreadywidget import NotReadyWidget
 
 MAX_ROW = 6
 MAX_COL = 8
+
 
 class MainWidget(QWidget):
     def __init__(self):
@@ -25,14 +28,18 @@ class MainWidget(QWidget):
         for i in range(MAX_ROW*MAX_COL):
             row = i // MAX_COL
             col = i % MAX_COL
-            self.gridLayout.addWidget(MainPanelWidget(i+1, self), row, col)
+            if random.randint(0, 99) % 2 == 0:
+                widget = NotReadyWidget(i+1, self)
+            else:
+                widget = MainPanelWidget(i+1, self)
+            self.gridLayout.addWidget(widget, row, col)
 
         self.showMaximized()
 
     def close_all_float_panels(self):
         for i in range(self.gridLayout.count()):
             widget = self.gridLayout.itemAt(i).widget()
-            if isinstance(widget, MainPanelWidget):
+            if isinstance(widget, BaseWidget):
                 widget.close_float_panel()
 
     def mousePressEvent(self, event):
