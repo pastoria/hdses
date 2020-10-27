@@ -3,7 +3,7 @@ import sys
 import os
 
 
-from PyQt5.QtWidgets import QApplication, QWidget, QFrame, QDesktopWidget, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QFrame, QGraphicsDropShadowEffect, QDesktopWidget, QMessageBox
 from PyQt5.QtCore import Qt, QFile, QCoreApplication, QTimer, QUrl, QThread, pyqtSignal, QPoint
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices, QBitmap, QPen
@@ -81,6 +81,9 @@ class MainPanelWidget(QWidget):
             f_x = max(0, self.x()-(f_w-self.width())/2)
             f_y = max(0, self.y()-(f_h-self.height())/2)
 
+            f_x = min(self.parent().width()-f_w, f_x)
+            f_y = min(self.parent().height()-f_h, f_y)
+
             self.float_panel.setGeometry(f_x, f_y, f_w, f_h)
             self.float_panel.show()
 
@@ -94,10 +97,30 @@ class MainPanelWidget(QWidget):
 
 
 floatpanelstyle = """
-    FloatPanelWidget {border:2px solid #35065a;}
+    FloatPanelWidget {
+        border: 2px solid #35065a;
+    }
     #widget_info {background-color: #f4c64f;}
     #widget_status {background-color: #ffffff;}
+    #label_1, #label_2, #label_3 {
+        color: #809379;
+    }
+    
+    #label_progress {
+        color: #2c56e8;
+    }
+    
+    QProgressBar {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+    }
+    
+    QProgressBar::chunk {
+        background-color: #2c56e8;
+        border-radius: 3px;
+    }
 """
+
 
 class FloatPanelWidget(QFrame):
     def __init__(self, number, main_panel):
@@ -109,6 +132,8 @@ class FloatPanelWidget(QFrame):
         self.label_number.setText('%02d' % number)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setStyleSheet(floatpanelstyle)
+        self.adjust_layout()
+        self.add_shadow_effect()
 
     def set_font(self, font):
         font.setPixelSize(38)
@@ -125,19 +150,30 @@ class FloatPanelWidget(QFrame):
         self.label_2.setFont(font)
         self.label_3.setFont(font)
 
-    # def paintEvent(self, QPaintEvent):
-    #     self.bmp = QBitmap(self.size())
-    #     self.bmp.fill()
-    #     painter = QPainter(self.bmp)
-    #     painter.setPen(Qt.NoPen)
-    #     painter.setBrush(Qt.black)
-    #     painter.drawRoundedRect(self.bmp.rect(), 5, 5)
-    #     painter.setRenderHint(QPainter.Antialiasing)
-    #     self.setMask(self.bmp)
+    def paintEvent(self, QPaintEvent):
+        self.bmp = QBitmap(self.size())
+        self.bmp.fill()
+        painter = QPainter(self.bmp)
+        painter.setPen(Qt.NoPen)
+        painter.setBrush(Qt.black)
+        painter.drawRoundedRect(self.bmp.rect(), 5, 5)
+        painter.setRenderHint(QPainter.Antialiasing)
+        self.setMask(self.bmp)
 
     def leaveEvent(self, event):
         if self.main_panel:
             self.main_panel.close_float_panel()
+
+    def add_shadow_effect(self):
+        self.shadow = QGraphicsDropShadowEffect(self)
+        self.shadow.setOffset(1,1)
+        self.shadow.setBlurRadius(5)
+        self.shadow.setColor(QColor(53,6,90))
+        self.setGraphicsEffect(self.shadow)
+
+    def adjust_layout(self):
+        self.verticalLayout_2.setSpacing(10)
+        self.verticalLayout_3.setSpacing(10)
 
     def change_style(self):
         self.setStyleSheet(qss_status_ready)

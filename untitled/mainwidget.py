@@ -25,7 +25,7 @@ class MainWidget(QWidget):
         for i in range(MAX_ROW*MAX_COL):
             row = i // MAX_COL
             col = i % MAX_COL
-            self.gridLayout.addWidget(MainPanelWidget(i + 1, self), row, col)
+            self.gridLayout.addWidget(MainPanelWidget(i+1, self), row, col)
 
         self.showMaximized()
 
