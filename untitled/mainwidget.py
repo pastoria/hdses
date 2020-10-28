@@ -12,8 +12,22 @@ from basewidget import BaseWidget
 from panelwidget import MainPanelWidget
 from notreadywidget import NotReadyWidget
 
-MAX_ROW = 6
-MAX_COL = 8
+MAX_PANEL = 35
+
+
+# get row and column value by total number of panels
+# max_panel: 16 32 48
+def get_max_row_col(max_panel):
+    if max_panel == 16:
+        max_row = 4
+        max_col = 4
+    elif max_panel == 32:
+        max_row = 4
+        max_col = 8
+    else:
+        max_row = 6
+        max_col = 8
+    return max_row, max_col
 
 
 class MainWidget(QWidget):
@@ -25,13 +39,15 @@ class MainWidget(QWidget):
         self.pushButton_close.clicked.connect(QCoreApplication.instance().quit)
         self.gridLayout = QGridLayout(self.widget_middle)
 
-        for i in range(MAX_ROW*MAX_COL):
-            row = i // MAX_COL
-            col = i % MAX_COL
-            if random.randint(0, 99) % 2 == 0:
-                widget = NotReadyWidget(i+1, self)
-            else:
-                widget = MainPanelWidget(i+1, self)
+        max_row, max_col = get_max_row_col(MAX_PANEL)
+        for i in range(max_row*max_col):
+            row = i // max_col
+            col = i % max_col
+            # if random.randint(0, 99) % 2 == 0:
+            #     widget = NotReadyWidget(i+1, self)
+            # else:
+            #     widget = MainPanelWidget(i+1, self)
+            widget = MainPanelWidget(i + 1, self)
             self.gridLayout.addWidget(widget, row, col)
 
         self.showMaximized()

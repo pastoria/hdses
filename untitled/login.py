@@ -97,9 +97,10 @@ class LoginWidget(QWidget):
         font = QtGui.QFont()
         font.setFamily(fontFamily)
 
+        font.setPixelSize(16)
         self.label_version.setFont(font)
 
-        font.setPixelSize(23)
+        font.setPixelSize(22)
 
         self.userLineEdit.setFont(font)
 
@@ -213,19 +214,9 @@ class LoginWidget(QWidget):
     def paintEvent(self, e):
         qp = QPainter()
         qp.begin(self)
-        pixmap = QPixmap(":/images/background.png")
+        pixmap = QPixmap(":/images/Login_BG.png")
         qp.drawPixmap(self.rect(), pixmap)
-        # self.drawRectangles(qp)
         qp.end()
-
-    def drawRectangles(self, qp):
-        col = QColor(253, 253, 253, 1)
-        col.setNamedColor('#d4d4d4')
-        qp.setPen(col)
-
-        qp.setBrush(col);
-        qp.drawLine(736//ratio, 522//ratio, 1825//ratio, 522//ratio)
-        qp.drawLine(736//ratio, 685 // ratio, 1825//ratio, 685 // ratio)
 
 
 if __name__ == '__main__':
