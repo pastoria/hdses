@@ -97,7 +97,7 @@ class LoginWidget(QWidget):
         font = QtGui.QFont()
         font.setFamily(fontFamily)
 
-        font.setPixelSize(16)
+        font.setPixelSize(18)
         self.label_version.setFont(font)
 
         font.setPixelSize(22)

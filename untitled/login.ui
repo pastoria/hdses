@@ -95,6 +95,9 @@ QLabel {
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>20</number>
+       </property>
        <property name="rightMargin">
         <number>10</number>
        </property>
