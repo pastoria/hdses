@@ -42,7 +42,7 @@ mainpanelstyle = """
 
 class MainPanelWidget(BaseWidget):
     def __init__(self, number, main_widget):
-        super(MainPanelWidget, self).__init__('panelwidget.ui', number, main_widget, MainPanelFrameFactory())
+        super(MainPanelWidget, self).__init__('panelwidget.ui', number, main_widget)
         self.set_font(get_font_avenir())
 
     def set_font(self, font):
@@ -60,8 +60,6 @@ class MainPanelWidget(BaseWidget):
         self.label_2.setFont(font)
         self.label_3.setFont(font)
 
-
-class MainPanelFrameFactory:
     def create_frame(self, number, main_panel):
         return MainPanelFrame(number, main_panel)
 

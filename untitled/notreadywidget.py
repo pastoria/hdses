@@ -27,7 +27,7 @@ notreadystyle = """
 
 class NotReadyWidget(BaseWidget):
     def __init__(self, number, main_widget):
-        super(NotReadyWidget, self).__init__('notreadywidget.ui', number, main_widget, NotReadyFrameFactory())
+        super(NotReadyWidget, self).__init__('notreadywidget.ui', number, main_widget)
         self.set_font(get_font_avenir())
 
     def set_font(self, font):
@@ -37,8 +37,6 @@ class NotReadyWidget(BaseWidget):
         font.setPixelSize(14)
         self.label_desc.setFont(font)
 
-
-class NotReadyFrameFactory:
     def create_frame(self, number, main_panel):
         return NotReadyFrame(number, main_panel)
 

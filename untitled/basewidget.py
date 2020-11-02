@@ -9,12 +9,11 @@ FLOAT_PANEL_RATIO = 1.5
 
 
 class BaseWidget(QWidget):
-    def __init__(self, ui_file, number, main_widget, factory):
+    def __init__(self, ui_file, number, main_widget):
         super(BaseWidget, self).__init__()
         loadUi(ui_file, self)
         self.number = number
         self.main_widget = main_widget
-        self.factory = factory
         self.label_number.setText('%02d' % number)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.float_panel = None
@@ -34,7 +33,7 @@ class BaseWidget(QWidget):
             self.main_widget.close_all_float_panels()
 
         if not self.float_panel:
-            self.float_panel = self.factory.create_frame(self.number, self)
+            self.float_panel = self.create_frame(self.number, self)
             self.float_panel.setParent(self.parent())
             self.float_panel.setWindowFlags(Qt.WindowStaysOnTopHint)
 

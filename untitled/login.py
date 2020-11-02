@@ -11,13 +11,15 @@ import subprocess
 import json
 import redis
 
+
 class LoginThread(QThread):
     done = pyqtSignal(int)
 
     def __init__(self, username, password):
         super(LoginThread, self).__init__()
-        self.username=username
-        self.password=password
+        self.m_flag = False
+        self.username = username
+        self.password = password
 
     def run(self):
         import time

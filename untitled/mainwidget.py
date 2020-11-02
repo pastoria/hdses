@@ -34,6 +34,7 @@ class MainWidget(QWidget):
     def __init__(self):
         super(MainWidget, self).__init__()
         loadUi('mainwidget.ui', self)
+        self.m_flag = False
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.pushButton_close.setStyleSheet("border:none;")
         self.pushButton_close.clicked.connect(QCoreApplication.instance().quit)
