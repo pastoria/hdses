@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.12.4, 2020-10-28T16:05:14. -->
+<!-- Written by QtCreator 4.12.4, 2020-11-04T01:09:45. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
-  <value type="QByteArray">{021e6d67-5e1a-4662-a06b-d3422430303c}</value>
+  <value type="QByteArray">{c1288a8a-e5d4-4192-a664-9139692d1dde}</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -61,7 +61,7 @@
    <valuemap type="QVariantMap" key="ClangTools">
     <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
     <value type="QString" key="ClangTools.DiagnosticConfig">Builtin.DefaultTidyAndClazy</value>
-    <value type="int" key="ClangTools.ParallelJobs">2</value>
+    <value type="int" key="ClangTools.ParallelJobs">4</value>
     <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
     <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
@@ -74,7 +74,7 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{1a97204c-853e-4b30-99a7-b3e354821b74}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{92a45e43-182e-440b-9e89-883b00213a11}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">-1</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
@@ -153,12 +153,12 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">login</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/Bitbucket/hdses/untitled/login.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/Bitbucket/hdses/untitled/login.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">notreadywidget</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/PycharmProjects/hdses/untitled/notreadywidget.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/PycharmProjects/hdses/untitled/notreadywidget.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{f41b41ac-8b64-447a-b608-69c44dfbe097}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/Bitbucket/hdses/untitled/login.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{aa3f8f90-85ab-4696-86f9-ec4db292ce1c}</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/PycharmProjects/hdses/untitled/notreadywidget.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -168,7 +168,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/eric/Bitbucket/hdses/untitled</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/eric/PycharmProjects/hdses/untitled</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
     <value type="QString" key="Analyzer.Perf.CallgraphMode">dwarf</value>
@@ -231,11 +231,11 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">splash</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/Bitbucket/hdses/untitled/splash.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/Bitbucket/hdses/untitled/splash.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/PycharmProjects/hdses/untitled/splash.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/PycharmProjects/hdses/untitled/splash.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter"></value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/Bitbucket/hdses/untitled/splash.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/PycharmProjects/hdses/untitled/splash.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -307,12 +307,12 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">panelwidget</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/Bitbucket/hdses/untitled/panelwidget.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/Bitbucket/hdses/untitled/panelwidget.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">mainwidget</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/PycharmProjects/hdses/untitled/mainwidget.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/PycharmProjects/hdses/untitled/mainwidget.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter"></value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/Bitbucket/hdses/untitled/panelwidget.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/PycharmProjects/hdses/untitled/mainwidget.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -384,12 +384,12 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">mainwidget</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/Bitbucket/hdses/untitled/mainwidget.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/Bitbucket/hdses/untitled/mainwidget.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">login</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/PycharmProjects/hdses/untitled/login.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/PycharmProjects/hdses/untitled/login.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter"></value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/Bitbucket/hdses/untitled/mainwidget.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/PycharmProjects/hdses/untitled/login.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -461,12 +461,12 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">notreadywidget</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/Bitbucket/hdses/untitled/notreadywidget.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/Bitbucket/hdses/untitled/notreadywidget.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">panelwidget</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/PycharmProjects/hdses/untitled/panelwidget.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/PycharmProjects/hdses/untitled/panelwidget.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter"></value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/Bitbucket/hdses/untitled/notreadywidget.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/PycharmProjects/hdses/untitled/panelwidget.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -539,11 +539,11 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">resource_rc</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/Bitbucket/hdses/untitled/resource_rc.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/Bitbucket/hdses/untitled/resource_rc.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/eric/PycharmProjects/hdses/untitled/resource_rc.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eric/PycharmProjects/hdses/untitled/resource_rc.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter"></value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/Bitbucket/hdses/untitled/resource_rc.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/eric/PycharmProjects/hdses/untitled/resource_rc.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

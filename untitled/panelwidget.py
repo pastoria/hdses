@@ -2,11 +2,12 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QWidget, QFrame, QGraphicsDropShadowEffect, QDesktopWidget, QMessageBox
-from PyQt5.QtCore import Qt, QFile, QCoreApplication, QTimer, QUrl, QThread, pyqtSignal, QPoint
+from PyQt5.QtCore import Qt, QFile, QCoreApplication, QTimer, QUrl, QThread, pyqtSignal, QPoint, QVariant
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices, QBitmap, QPen
-from utility import get_font_avenir
+from utility import get_font_avenir, load_combobox_options
 from basewidget import BaseWidget, BaseFrame
+from style import mainpanelstyle, combobox_style_small
 
 STATUS_READY = 0
 STATUS_RUNNING = 1
@@ -14,36 +15,22 @@ STATUS_ERROR = 2
 STATUS_FINISH = 3
 
 
-mainpanelstyle = """
-    MainPanelFrame {
-        border: 2px solid #35065a;
-    }
-    #widget_info {background-color: #f4c64f;}
-    #widget_status {background-color: #ffffff;}
-    #label_1, #label_2, #label_3 {
-        color: #809379;
-    }
-
-    #label_progress {
-        color: #2c56e8;
-    }
-
-    QProgressBar {
-        background-color: rgba(255, 255, 255, 0);
-        border: none;
-    }
-
-    QProgressBar::chunk {
-        background-color: #2c56e8;
-        border-radius: 3px;
-    }
-"""
-
-
 class MainPanelWidget(BaseWidget):
     def __init__(self, number, main_widget):
         super(MainPanelWidget, self).__init__('panelwidget.ui', number, main_widget)
-        self.set_font(get_font_avenir())
+        font = get_font_avenir()
+        self.comboBox.setFont(font)
+        options = load_combobox_options()
+        for option in options:
+            self.comboBox.addItem('   ' + option, QVariant(option))
+        self.comboBox.setPlaceholderText("   Select a Profile")
+        self.comboBox.setCurrentIndex(-1)
+        self.comboBox.setMaximumWidth(150)
+        self.comboBox.currentIndexChanged.connect(
+            lambda: self.change_option(self.comboBox.currentIndex()))
+
+        self.set_font(font)
+
 
     def set_font(self, font):
         font.setPixelSize(20)
@@ -63,13 +50,38 @@ class MainPanelWidget(BaseWidget):
     def create_frame(self, number, main_panel):
         return MainPanelFrame(number, main_panel)
 
+    def set_current_option(self, index):
+        self.comboBox.setCurrentIndex(index)
+
+    def get_current_option(self):
+        return self.comboBox.currentIndex()
+
+    def change_option(self, index):
+        if index > -1:
+            self.comboBox.setStyleSheet(combobox_style_small)
+
 
 class MainPanelFrame(BaseFrame):
     def __init__(self, number, main_panel):
         super(MainPanelFrame, self).__init__('panelwidget.ui', number, main_panel)
         self.setStyleSheet(mainpanelstyle)
-        self.set_font(get_font_avenir())
+        font = get_font_avenir()
+        self.comboBox.setFont(font)
+        options = load_combobox_options()
+        for option in options:
+            self.comboBox.addItem('   ' + option, QVariant(option))
+        self.comboBox.setPlaceholderText("   Select a Profile")
+        self.comboBox.setMaximumWidth(500)
+        self.comboBox.currentIndexChanged.connect(
+            lambda: self.change_option(self.comboBox.currentIndex()))
+        self.comboBox.setCurrentIndex(main_panel.get_current_option())
+        self.change_option(main_panel.get_current_option())
+        self.set_font(font)
         self.adjust_layout()
+
+    def change_option(self, index):
+        if index > -1:
+            self.comboBox.setStyleSheet(combobox_style_small)
 
     def set_font(self, font):
         font.setPixelSize(38)

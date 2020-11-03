@@ -9,9 +9,10 @@ from PyQt5.QtCore import Qt, QFile, QCoreApplication, QVariant, QTimer, QUrl, QT
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices
 from basewidget import BaseWidget
-from utility import get_font_avenir
+from utility import get_font_avenir, load_combobox_options
 from panelwidget import MainPanelWidget
 from notreadywidget import NotReadyWidget
+from style import combobox_style_big
 
 MAX_PANEL = 35
 
@@ -31,126 +32,6 @@ def get_max_row_col(max_panel):
     return max_row, max_col
 
 
-combobox_style_one = """
-     QComboBox{  background-color: rgba(255, 255, 255, 1);
-                 border: 1px solid rgba(143, 0, 255, 1);
-                 border-radius: 3px;
-                 border-width: 1px; border-style:outset;
-                 padding-left: 5px;
-                 font-size: 18px;
-                 outline:0px;
-                 combobox-popup: 0;
-                 color: rgba(144, 144, 144, 1);
-    }
-
- QComboBox QAbstractItemView {
-    outline: 0px solid red;
-    border: 0px solid yellow;
-    color: rgba(0, 0, 0, 1);
-    padding-left: 0px;
-    background-color: rgba(255, 255, 255, 1);
-    selection-color: rgba(0, 0, 0, 1);
-    selection-background-color: rgba(144, 144, 144, 1);
-}
-
-QComboBox::drop-down {
-subcontrol-origin: padding;
-subcontrol-position: top right;
-width: 65px;
-border-left-width: 0px;
-border-left-color: gray;
-border-left-style: solid;
-border-top-right-radius: 3px;
-border-bottom-right-radius: 3px;
-background:transparent;
-}
-
-QComboBox::down-arrow {
-	image: url(:/images/MoreButton_Purple.svg);
-	background: transparent;
-}
-
-QComboBox QScrollBar::vertical{
-    width:10px;
-    background: rgba(255, 255, 255, 1);
-    border:none;
-    border-radius:1px;
-}
-
-QComboBox QScrollBar::handle::vertical{
-    border-radius:1px;
-    width: 10px;
-    background: rgba(204, 204, 204, 1);
-}
-
-QComboBox QScrollBar::add-line::vertical{
-    border:none;
-}
-QComboBox QScrollBar::sub-line::vertical{
-    border:none;
-}
-"""
-
-combobox_style_two = """
-     QComboBox{  background-color: rgba(255, 255, 255, 1);
-                 border: 1px solid rgba(143, 0, 255, 1);
-                 border-radius: 3px;
-                 border-width: 1px; border-style:outset;
-                 padding-left: 5px;
-                 font-size: 18px;
-                 outline:0px;
-                 combobox-popup: 0;
-                 color: rgba(0, 0, 0, 1);
-    }
-
- QComboBox QAbstractItemView {
-    outline: 0px solid red;
-    border: 0px solid yellow;
-    color: rgba(0, 0, 0, 1);
-    padding-left: 0px;
-    background-color: rgba(255, 255, 255, 1);
-    selection-color: rgba(0, 0, 0, 1);
-    selection-background-color: rgba(144, 144, 144, 1);
-}
-
-QComboBox::drop-down {
-subcontrol-origin: padding;
-subcontrol-position: top right;
-width: 65px;
-border-left-width: 0px;
-border-left-color: gray;
-border-left-style: solid;
-border-top-right-radius: 3px;
-border-bottom-right-radius: 3px;
-background:transparent;
-}
-
-QComboBox::down-arrow {
-	image: url(:/images/MoreButton_Purple.svg);
-	background: transparent;
-}
-
-QComboBox QScrollBar::vertical{
-    width:10px;
-    background: rgba(255, 255, 255, 1);
-    border:none;
-    border-radius:1px;
-}
-
-QComboBox QScrollBar::handle::vertical{
-    border-radius:1px;
-    width: 10px;
-    background: rgba(204, 204, 204, 1);
-}
-
-QComboBox QScrollBar::add-line::vertical{
-    border:none;
-}
-QComboBox QScrollBar::sub-line::vertical{
-    border:none;
-}
-"""
-
 class MainWidget(QWidget):
     def __init__(self):
         super(MainWidget, self).__init__()
@@ -161,12 +42,7 @@ class MainWidget(QWidget):
         self.pushButton_close.clicked.connect(QCoreApplication.instance().quit)
         font = get_font_avenir()
         self.comboBox.setFont(font)
-        self.comboBox.setStyleSheet(combobox_style_one)
-        options = ['Cisco Secure Erase Standard', 'DoD(3)', 'DoD7(7)', 'DoE(3)', 'NSA(3)',
-                                'USAirForce(3)', 'USArmy(3)', 'USNavy(3)', 'CAN_RCMP(7)', 'CAN_CSEC(3)',
-                                'Russian(2)', 'British(1)', 'UK(3)', 'German(7)', 'Australia(1)',
-                                'Australia_15(3)', 'NewZealand(1)', 'BSchneier(7)', 'PGutmann(35)',
-                                'Pfitzner(33)', 'OneTime_0(1)', 'OneTime_1(1)']
+        options = load_combobox_options()
         for option in options:
             self.comboBox.addItem('   ' + option, QVariant(option))
         self.comboBox.setPlaceholderText("   Select a Profile")
@@ -191,9 +67,12 @@ class MainWidget(QWidget):
 
     def change_option(self, index):
         if index > -1:
-            self.comboBox.setStyleSheet(combobox_style_two)
-        else:
-            self.comboBox.setStyleSheet(combobox_style_one)
+            self.comboBox.setStyleSheet(combobox_style_big)
+
+        for i in range(self.gridLayout.count()):
+            widget = self.gridLayout.itemAt(i).widget()
+            if isinstance(widget, MainPanelWidget):
+                widget.set_current_option(index)
 
     def close_all_float_panels(self):
         for i in range(self.gridLayout.count()):
