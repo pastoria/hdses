@@ -19,9 +19,10 @@ class SplashWidget(QWidget):
         self.center()
 
     def set_font(self, font):
+        font.setPixelSize(18)
         self.label_version.setFont(font)
         self.label_msg.setFont(font)
-        font.setPixelSize(12)
+        font.setPixelSize(14)
         self.label_copyright.setFont(font)
 
     def center(self):
@@ -33,7 +34,7 @@ class SplashWidget(QWidget):
     def paintEvent(self, e):
         qp = QPainter()
         qp.begin(self)
-        pixmap = QPixmap(":/images/Splash_BG.png")
+        pixmap = QPixmap(":/images/Splash_BG_big.png")
         qp.drawPixmap(self.rect(), pixmap)
         qp.end()
 

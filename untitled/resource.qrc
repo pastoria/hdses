@@ -23,5 +23,6 @@
         <file>images/Error.svg</file>
         <file>images/Normal_FDLogo.png</file>
         <file>images/Login_FDLogo.png</file>
+        <file>images/Splash_BG_big.png</file>
     </qresource>
 </RCC>
