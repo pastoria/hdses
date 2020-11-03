@@ -85,6 +85,91 @@ QPushButton {
            </widget>
           </item>
           <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">     QComboBox{  background-color: rgba(255, 255, 255, 1);
+                 border: 5px solid rgba(143, 0, 255, 1);
+                 border-radius: 3px;
+                 border-width: 0; border-style:outset;
+                 padding-left: 5px;
+                 font-size: 18px;
+                 outline:0px;
+                 combobox-popup: 0;
+                 color: rgba(144, 144, 144, 1);
+    }
+
+ QComboBox QAbstractItemView {
+    outline: 0px solid red;
+    border: 0px solid yellow;
+    color: rgba(0, 0, 0, 1);
+    padding-left: 0px;
+    background-color: rgba(255, 255, 255, 1);
+    selection-color: rgba(132, 141, 142, 1);
+    selection-background-color: rgba(204, 204, 204, 1);
+}
+
+QComboBox::drop-down {
+subcontrol-origin: padding;
+subcontrol-position: top right;
+width: 70px;
+border-left-width: 0px;
+border-left-color: gray;
+border-left-style: solid;
+border-top-right-radius: 3px;
+border-bottom-right-radius: 3px;
+background:transparent;
+}
+
+QComboBox::down-arrow {
+	image: url(:/images/MoreButton_Purple.svg);
+	background: transparent;
+}
+
+QComboBox QScrollBar::vertical{
+    width:10px;
+    background: rgba(255, 255, 255, 1);
+    border:none;
+    border-radius:1px;
+}
+
+QComboBox QScrollBar::handle::vertical{
+    border-radius:1px;
+    width: 10px;
+    background: rgba(204, 204, 204, 1);
+}
+
+QComboBox QScrollBar::add-line::vertical{
+    border:none;
+}
+QComboBox QScrollBar::sub-line::vertical{
+    border:none;
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
