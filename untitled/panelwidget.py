@@ -19,6 +19,7 @@ class MainPanelWidget(BaseWidget):
     def __init__(self, number, main_widget):
         super(MainPanelWidget, self).__init__('panelwidget.ui', number, main_widget)
         font = get_font_avenir()
+        font.setPixelSize(14)
         self.comboBox.setFont(font)
         options = load_combobox_options()
         for option in options:
@@ -66,12 +67,14 @@ class MainPanelFrame(BaseFrame):
         super(MainPanelFrame, self).__init__('panelwidget.ui', number, main_panel)
         self.setStyleSheet(mainpanelstyle)
         font = get_font_avenir()
+        font.setPixelSize(18)
         self.comboBox.setFont(font)
         options = load_combobox_options()
         for option in options:
             self.comboBox.addItem('   ' + option, QVariant(option))
         self.comboBox.setPlaceholderText("   Select a Profile")
         self.comboBox.setMaximumWidth(500)
+        self.comboBox.setMinimumHeight(26)
         self.comboBox.currentIndexChanged.connect(
             lambda: self.change_option(self.comboBox.currentIndex()))
         self.comboBox.setCurrentIndex(main_panel.get_current_option())
@@ -82,6 +85,7 @@ class MainPanelFrame(BaseFrame):
     def change_option(self, index):
         if index > -1:
             self.comboBox.setStyleSheet(combobox_style_small)
+            self.main_panel.set_current_option(index)
 
     def set_font(self, font):
         font.setPixelSize(38)
@@ -101,6 +105,10 @@ class MainPanelFrame(BaseFrame):
     def adjust_layout(self):
         self.verticalLayout_2.setSpacing(10)
         self.verticalLayout_3.setSpacing(10)
+
+    def leaveEvent(self, event):
+        if not self.comboBox.view().isVisible():
+            super().leaveEvent(event)
 
 
 if __name__ == "__main__":

@@ -4,7 +4,6 @@ combobox_style_small = """
              border-radius: 3px;
              border-width: 1px; border-style:outset;
              padding-left: 0px;
-             font-size: 14px;
              outline:0px;
              combobox-popup: 0;
              color: rgba(0, 0, 0, 1);
