@@ -14,7 +14,7 @@
    <string>MainWidget</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#widget_top, #widget_bottom {
+   <string notr="true">#widget_top, #widget_middle, #widget_bottom {
 	background: #35065a;
 }
 

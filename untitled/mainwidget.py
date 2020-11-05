@@ -56,11 +56,11 @@ class MainWidget(QWidget):
         for i in range(max_row*max_col):
             row = i // max_col
             col = i % max_col
-            if random.randint(0, 99) % 2 == 0:
-                widget = NotReadyWidget(i+1, self)
-            else:
-                widget = MainPanelWidget(i+1, self)
-            # widget = MainPanelWidget(i + 1, self)
+            # if random.randint(0, 99) % 2 == 0:
+            #     widget = NotReadyWidget(i+1, self)
+            # else:
+            #     widget = MainPanelWidget(i+1, self)
+            widget = MainPanelWidget(i + 1, self)
             self.gridLayout.addWidget(widget, row, col)
 
         self.showMaximized()
@@ -80,21 +80,20 @@ class MainWidget(QWidget):
             if isinstance(widget, BaseWidget):
                 widget.close_float_panel()
 
-    def mousePressEvent(self, event):
-        if event.button() == Qt.LeftButton:
-            self.m_flag = True
-            self.m_Position = event.globalPos() - self.pos()  # 获取鼠标相对窗口的位置
-            event.accept()
-            # self.setCursor(QCursor(Qt.OpenHandCursor))  # 更改鼠标图标
-
-    def mouseMoveEvent(self, QMouseEvent):
-        if Qt.LeftButton and self.m_flag:
-            self.move(QMouseEvent.globalPos() - self.m_Position)  # 更改窗口位置
-            QMouseEvent.accept()
-
-    def mouseReleaseEvent(self, QMouseEvent):
-        self.m_flag = False
-        self.setCursor(QCursor(Qt.ArrowCursor))
+    # def mousePressEvent(self, event):
+    #     if event.button() == Qt.LeftButton:
+    #         self.m_flag = True
+    #         self.m_Position = event.globalPos() - self.pos()  # 获取鼠标相对窗口的位置
+    #         event.accept()
+    #
+    # def mouseMoveEvent(self, QMouseEvent):
+    #     if Qt.LeftButton and self.m_flag:
+    #         self.move(QMouseEvent.globalPos() - self.m_Position)  # 更改窗口位置
+    #         QMouseEvent.accept()
+    #
+    # def mouseReleaseEvent(self, QMouseEvent):
+    #     self.m_flag = False
+    #     self.setCursor(QCursor(Qt.ArrowCursor))
 
 
 if __name__ == "__main__":

@@ -141,3 +141,129 @@ mainpanelstyle = """
         border-radius: 3px;
     }
 """
+
+status_style_ready = """
+#widget_info {
+    background-color: rgba(242, 244, 103, 0.88);
+}
+
+#widget_status {
+    background-color: #ffffff;
+}
+
+#label_1, #label_2, #label_3 {
+	color: #809379;
+}
+"""
+
+status_style_running = """
+#widget_info {
+    background-color: rgba(244, 198, 79, 1);
+}
+
+#widget_status {
+    background-color: #ffffff;
+}
+
+#label_1, #label_2, #label_3 {
+	color: #809379;
+}
+
+#label_progress {
+	color: #2c56e8;
+}
+
+QProgressBar {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+}
+
+QProgressBar::chunk {
+	background-color: #2c56e8;
+	border-radius: 1px;
+}
+"""
+
+status_style_bad_sectors = """
+#widget_info {
+    background-color: rgba(248, 144, 144, 1);
+}
+
+#widget_status {
+    background-color: #ffffff;
+}
+
+#label_1, #label_2, #label_3 {
+	color: #809379;
+}
+
+#label_progress {
+	color: #2c56e8;
+}
+
+QProgressBar {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+}
+
+QProgressBar::chunk {
+	background-color: #2c56e8;
+	border-radius: 1px;
+}
+"""
+
+status_style_error = """
+#widget_info {
+    background-color: rgba(255, 62, 62, 1);
+}
+
+#widget_status {
+    background-color: #ffffff;
+}
+
+#label_1, #label_2, #label_3 {
+	color: #809379;
+}
+
+#label_progress {
+	color: rgba(255, 62, 62, 1);
+}
+
+QProgressBar {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+}
+
+QProgressBar::chunk {
+	background-color: rgba(255, 62, 62, 1);
+	border-radius: 1px;
+}
+"""
+
+status_style_success = """
+#widget_info {
+    background-color: rgba(130, 233, 94, 1);
+}
+
+#widget_status {
+    background-color: #ffffff;
+}
+
+#label_1, #label_2, #label_3 {
+	color: #809379;
+}
+
+#label_progress {
+	color: #2c56e8;
+}
+
+QProgressBar {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+}
+
+QProgressBar::chunk {
+	background-color: rgba(130, 233, 94, 1);
+	border-radius: 1px;
+}
+"""
