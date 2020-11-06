@@ -8,7 +8,8 @@ from PyQt5.QtWidgets import QDesktopWidget
 
 
 def load_combobox_options():
-    options = ['Cisco Secure Erase Standard', 'DoD(3)', 'DoD7(7)', 'DoE(3)', 'NSA(3)',
+    # 'Cisco Secure Erase Standard'
+    options = ['DoD(3)', 'DoD7(7)', 'DoE(3)', 'NSA(3)',
                'USAirForce(3)', 'USArmy(3)', 'USNavy(3)', 'CAN_RCMP(7)', 'CAN_CSEC(3)',
                'Russian(2)', 'British(1)', 'UK(3)', 'German(7)', 'Australia(1)',
                'Australia_15(3)', 'NewZealand(1)', 'BSchneier(7)', 'PGutmann(35)',

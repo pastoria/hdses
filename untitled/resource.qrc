@@ -24,5 +24,7 @@
         <file>images/Normal_FDLogo.png</file>
         <file>images/Login_FDLogo.png</file>
         <file>images/Splash_BG_big.png</file>
+        <file>images/LessButton_Gray.svg</file>
+        <file>images/LessButton_Purple.svg</file>
     </qresource>
 </RCC>

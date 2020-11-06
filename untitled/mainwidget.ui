@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#widget_top, #widget_middle, #widget_bottom {
-	background: #35065a;
+	background: rgba(53, 6, 90, 1);
 }
 
 #label_version, #label_logo {
@@ -105,35 +105,37 @@ QPushButton {
             <property name="minimumSize">
              <size>
               <width>300</width>
-              <height>30</height>
+              <height>35</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">     QComboBox{  background-color: rgba(255, 255, 255, 1);
-                 border: 1px solid rgba(143, 0, 255, 1);
-                 border-radius: 3px;
-                 border-width: 1; border-style:outset;
-                 padding-left: 0px;
-                 font-size: 18px;
-                 outline:0px;
-                 combobox-popup: 0;
-                 color: rgba(144, 144, 144, 1);
-    }
+             <string notr="true"> QComboBox { 
+			  background-color: rgba(232, 232, 232, 1);
+             border: 1px solid rgba(143, 0, 255, 1);
+             border-radius: 5px;
+             border-width: 1px; border-style:outset;
+             padding-left: 0px;
+             font-size: 18px;
+             outline:0px;
+             combobox-popup: 0;
+             color: rgba(144, 144, 144, 1);
+}
 
  QComboBox QAbstractItemView {
     outline: 0px solid red;
-    border: 0px solid yellow;
+    border: 1px solid rgba(143, 0, 255, 1);
+    border-radius: 2px;
     color: rgba(0, 0, 0, 1);
     padding-left: 0px;
     background-color: rgba(255, 255, 255, 1);
-    selection-color: rgba(132, 141, 142, 1);
-    selection-background-color: rgba(204, 204, 204, 1);
+    selection-color: rgba(255, 255, 255, 1);
+    selection-background-color: rgba(144, 1, 255, 1);
 }
 
 QComboBox::drop-down {
 subcontrol-origin: padding;
 subcontrol-position: top right;
-width: 70px;
+width: 65px;
 border-left-width: 0px;
 border-left-color: gray;
 border-left-style: solid;
@@ -147,6 +149,11 @@ QComboBox::down-arrow {
 	background: transparent;
 }
 
+QComboBox::down-arrow:on {
+	image: url(:/images/LessButton_Purple.svg);
+	background: transparent;
+}
+
 QComboBox QScrollBar::vertical{
     width:10px;
     background: rgba(255, 255, 255, 1);
@@ -157,7 +164,7 @@ QComboBox QScrollBar::vertical{
 QComboBox QScrollBar::handle::vertical{
     border-radius:1px;
     width: 10px;
-    background: rgba(204, 204, 204, 1);
+    background: rgba(87, 0, 156, 1);
 }
 
 QComboBox QScrollBar::add-line::vertical{

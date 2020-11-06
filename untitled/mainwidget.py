@@ -56,11 +56,11 @@ class MainWidget(QWidget):
         for i in range(max_row*max_col):
             row = i // max_col
             col = i % max_col
-            # if random.randint(0, 99) % 2 == 0:
-            #     widget = NotReadyWidget(i+1, self)
-            # else:
-            #     widget = MainPanelWidget(i+1, self)
-            widget = MainPanelWidget(i + 1, self)
+            if random.randint(0, 99) % 2 == 0:
+                widget = NotReadyWidget(i+1, self)
+            else:
+                widget = MainPanelWidget(i+1, self)
+            # widget = MainPanelWidget(i + 1, self)
             self.gridLayout.addWidget(widget, row, col)
 
         self.showMaximized()
