@@ -1,65 +1,65 @@
 combobox_style_ready = """
- QComboBox {  
-             background-color: rgba(254, 255, 207, 1);
-             border: 0px solid rgba(204, 204, 204, 1);
-             border-radius: 3px;
-             border-width: 0px; border-style:outset;
-             padding-left: 0px;
-             outline:0px;
-             combobox-popup: 0;
-             color: rgba(0, 0, 0, 1);
+QComboBox {  
+     background-color: rgba(254, 255, 207, 1);
+     border: 0px solid rgba(204, 204, 204, 1);
+     border-radius: 3px;
+     border-width: 0px; border-style:outset;
+     padding-left: 0px;
+     outline:0px;
+     combobox-popup: 0;
+     color: rgba(0, 0, 0, 1);
 }
 """
 
 combobox_style_running = """
- QComboBox {  
-             background-color: rgba(255, 232, 173, 1);
-             border: 0px solid rgba(204, 204, 204, 1);
-             border-radius: 3px;
-             border-width: 0px; border-style:outset;
-             padding-left: 0px;
-             outline:0px;
-             combobox-popup: 0;
-             color: rgba(0, 0, 0, 1);
+QComboBox {  
+     background-color: rgba(255, 232, 173, 1);
+     border: 0px solid rgba(204, 204, 204, 1);
+     border-radius: 3px;
+     border-width: 0px; border-style:outset;
+     padding-left: 0px;
+     outline:0px;
+     combobox-popup: 0;
+     color: rgba(0, 0, 0, 1);
 }
 """
 
 combobox_style_bad_sectors = """
- QComboBox {  
-             background-color: rgba(255, 207, 207, 1);
-             border: 0px solid rgba(204, 204, 204, 1);
-             border-radius: 3px;
-             border-width: 0px; border-style:outset;
-             padding-left: 0px;
-             outline:0px;
-             combobox-popup: 0;
-             color: rgba(0, 0, 0, 1);
+QComboBox {  
+     background-color: rgba(255, 207, 207, 1);
+     border: 0px solid rgba(204, 204, 204, 1);
+     border-radius: 3px;
+     border-width: 0px; border-style:outset;
+     padding-left: 0px;
+     outline:0px;
+     combobox-popup: 0;
+     color: rgba(0, 0, 0, 1);
 }
 
 """
 combobox_style_error = """
- QComboBox {  
-             background-color: rgba(254, 214, 214, 1);
-             border: 0px solid rgba(204, 204, 204, 1);
-             border-radius: 3px;
-             border-width: 0px; border-style:outset;
-             padding-left: 0px;
-             outline:0px;
-             combobox-popup: 0;
-             color: rgba(0, 0, 0, 1);
+QComboBox {  
+     background-color: rgba(254, 214, 214, 1);
+     border: 0px solid rgba(204, 204, 204, 1);
+     border-radius: 3px;
+     border-width: 0px; border-style:outset;
+     padding-left: 0px;
+     outline:0px;
+     combobox-popup: 0;
+     color: rgba(0, 0, 0, 1);
 }
 """
 
 combobox_style_success = """
- QComboBox {  
-             background-color: rgba(218, 251, 206, 1);
-             border: 0px solid rgba(204, 204, 204, 1);
-             border-radius: 3px;
-             border-width: 0px; border-style:outset;
-             padding-left: 0px;
-             outline:0px;
-             combobox-popup: 0;
-             color: rgba(0, 0, 0, 1);
+QComboBox {  
+     background-color: rgba(218, 251, 206, 1);
+     border: 0px solid rgba(204, 204, 204, 1);
+     border-radius: 3px;
+     border-width: 0px; border-style:outset;
+     padding-left: 0px;
+     outline:0px;
+     combobox-popup: 0;
+     color: rgba(0, 0, 0, 1);
 }
 """
 
@@ -112,6 +112,7 @@ QComboBox QScrollBar::handle::vertical{
 QComboBox QScrollBar::add-line::vertical{
     border:none;
 }
+
 QComboBox QScrollBar::sub-line::vertical{
     border:none;
 }
@@ -142,15 +143,15 @@ combobox_style_big = """
 }
 
 QComboBox::drop-down {
-subcontrol-origin: padding;
-subcontrol-position: top right;
-width: 35px;
-border-left-width: 0px;
-border-left-color: gray;
-border-left-style: solid;
-border-top-right-radius: 3px;
-border-bottom-right-radius: 3px;
-background:transparent;
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 35px;
+    border-left-width: 0px;
+    border-left-color: gray;
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background:transparent;
 }
 
 QComboBox::down-arrow {
@@ -179,6 +180,7 @@ QComboBox QScrollBar::handle::vertical{
 QComboBox QScrollBar::add-line::vertical{
     border:none;
 }
+
 QComboBox QScrollBar::sub-line::vertical{
     border:none;
 }

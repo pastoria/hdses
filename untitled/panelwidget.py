@@ -130,6 +130,7 @@ class MainPanelWidget(BaseWidget):
         self.pushButton.setIcon(QIcon(':/images/StopTask_White.svg'))
         self.label_progress.show()
         self.progressBar.show()
+        print(self.styleSheet())
 
     def change_status_bad_sectors(self):
         style = combobox_style_bad_sectors+combobox_style_small+status_style_bad_sectors
@@ -146,7 +147,6 @@ class MainPanelWidget(BaseWidget):
         self.pushButton.setIcon(QIcon(''))
         self.label_progress.show()
         self.progressBar.show()
-
 
     def change_status_success(self):
         style = combobox_style_success+combobox_style_small+status_style_success
