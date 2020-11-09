@@ -86,6 +86,16 @@ class MainPanelWidget(BaseWidget):
         #     self.comboBox.setStyleSheet('color:(144, 144, 144)')
         #     # self.comboBox.setStyleSheet(combobox_style_small)
 
+    def start(self):
+        if self.status == STATUS_READY:
+            self.status = STATUS_RUNNING
+            self.change_status()
+
+    def cancel(self):
+        if self.status == STATUS_RUNNING or self.status == STATUS_BAD_SECTORS:
+            self.status = STATUS_ERROR
+            self.change_status()
+
     def change_status(self):
         status_dict = {
             STATUS_READY: self.change_status_ready,
@@ -130,7 +140,6 @@ class MainPanelWidget(BaseWidget):
         self.pushButton.setIcon(QIcon(':/images/StopTask_White.svg'))
         self.label_progress.show()
         self.progressBar.show()
-        print(self.styleSheet())
 
     def change_status_bad_sectors(self):
         style = combobox_style_bad_sectors+combobox_style_small+status_style_bad_sectors
@@ -144,6 +153,7 @@ class MainPanelWidget(BaseWidget):
         style = combobox_style_error+combobox_style_small+status_style_error
         self.setStyleSheet(style)
         self.label_icon_r.setPixmap(QPixmap(':/images/Error.svg'))
+        self.label_status_r.setText('Error code: {0}'.format(self.info.get('error')))
         self.pushButton.setIcon(QIcon(''))
         self.label_progress.show()
         self.progressBar.show()
@@ -162,6 +172,7 @@ class MainPanelFrame(BaseFrame):
         super(MainPanelFrame, self).__init__('panelwidget.ui', number, main_panel)
         self.setStyleSheet(mainpanelstyle)
         self.pushButton.setIconSize(QSize(22, 22))
+        self.pushButton.clicked.connect(self.start_cancel)
         # self.label_icon_l.setSize(QSize(20, 20))
         # self.label_icon_r.setPixmapSize(QSize(20, 20))
         font = get_font_avenir()
@@ -177,15 +188,46 @@ class MainPanelFrame(BaseFrame):
             lambda: self.change_option(self.comboBox.currentIndex()))
         self.comboBox.setCurrentIndex(main_panel.get_current_option())
         self.change_option(main_panel.get_current_option())
+        self.update_info(main_panel.info, main_panel.status)
         self.set_font(font)
         self.adjust_layout()
 
         self.change_status(self.main_panel.status)
 
+    def start_cancel(self):
+        if self.main_panel.status == STATUS_SUCCESS or self.main_panel.status == STATUS_ERROR:
+            return
+
+        if self.main_panel.status == STATUS_READY:
+            self.main_panel.status = STATUS_RUNNING
+            self.main_panel.change_status()
+            self.change_status(STATUS_RUNNING)
+        else:
+            self.main_panel.status = STATUS_ERROR
+            self.main_panel.change_status()
+            self.change_status(STATUS_ERROR)
+
+
     def change_option(self, index):
         if index > -1:
             # self.comboBox.setStyleSheet(combobox_style_small)
             self.main_panel.set_current_option(index)
+
+    def update_info(self, info, status):
+        self.label_sn.setText(info.get('sn', ''))
+        self.label_model.setText(info.get('model', ''))
+        self.label_size.setText(info.get('size', ''))
+        self.label_badsectors.setText('BadSectors ({0})'.format(info.get('bad_sectors', 0)))
+        self.label_status_l.setText(info.get('start_time', ''))
+        if status == STATUS_ERROR:
+            self.label_status_r.setText('Error code: {0}'.format(info.get('error')))
+        else:
+            self.label_status_r.setText(info.get('speed'))
+
+        if status == STATUS_SUCCESS:
+            self.set_progress(100)
+        else:
+            self.set_progress(info.get('progress'))
 
     def change_status(self, status):
         status_dict = {

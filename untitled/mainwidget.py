@@ -40,7 +40,12 @@ class MainWidget(QWidget):
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.pushButton_close.setStyleSheet("border:none;")
         self.pushButton_close.clicked.connect(QCoreApplication.instance().quit)
+        self.pushButton_allstart.clicked.connect(self.start_all)
+        self.pushButton_allcancel.clicked.connect(self.cancel_all)
         font = get_font_avenir()
+        self.pushButton_allstart.setFont(font)
+        self.pushButton_allcancel.setFont(font)
+        self.checkBox.setFont(font)
         self.comboBox.setFont(font)
         options = load_combobox_options()
         for option in options:
@@ -64,6 +69,20 @@ class MainWidget(QWidget):
             self.gridLayout.addWidget(widget, row, col)
 
         self.showMaximized()
+
+    def start_all(self):
+        for i in range(self.gridLayout.count()):
+            widget = self.gridLayout.itemAt(i).widget()
+            if isinstance(widget, MainPanelWidget):
+                widget.start()
+        pass
+
+    def cancel_all(self):
+        for i in range(self.gridLayout.count()):
+            widget = self.gridLayout.itemAt(i).widget()
+            if isinstance(widget, MainPanelWidget):
+                widget.cancel()
+        pass
 
     def change_option(self, index):
         if index > -1:

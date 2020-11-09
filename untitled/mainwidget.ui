@@ -54,7 +54,7 @@ QPushButton {
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,8,0,0,0,0,0,1,0">
           <property name="spacing">
            <number>0</number>
           </property>
@@ -178,6 +178,116 @@ QComboBox QScrollBar::sub-line::vertical{
           </item>
           <item>
            <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_allstart">
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-image: url(:/images/AllStart_Button.svg);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>     All Start</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_allcancel">
+            <property name="minimumSize">
+             <size>
+              <width>174</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-image: url(:/images/AllCancel_Button.svg);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>       All Cancel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox">
+            <property name="styleSheet">
+             <string notr="true">QCheckBox{
+    spacing: 10px;
+	color: rgb(255, 255, 255);
+}
+
+QCheckBox::indicator{
+    width: 32px;
+    height: 16px;
+}
+
+QCheckBox::indicator:unchecked{
+    image:url(:/images/SwitchOff.svg);
+}
+
+QCheckBox::indicator:checked{
+    image:url(:/images/SwitchOn.svg);
+}
+
+</string>
+            </property>
+            <property name="text">
+             <string>Auto Start</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_6">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
