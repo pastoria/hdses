@@ -182,7 +182,7 @@ class LoginWidget(QWidget):
         t.run()
 
     def login_complete(self, errorcode):
-        main_widget = MainWidget()
+        main_widget = MainWidget(48)
         main_widget.show()
         self.close()
 
