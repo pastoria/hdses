@@ -14,7 +14,7 @@ class BaseWidget(QWidget):
         loadUi(ui_file, self)
         self.number = number
         self.main_widget = main_widget
-        self.label_number.setText('%02d' % number)
+        self.label_number.setText('%2d' % number)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.float_panel = None
 
@@ -61,7 +61,7 @@ class BaseFrame(QFrame):
         loadUi(ui_file, self)
         self.number = number
         self.main_panel = main_panel
-        self.label_number.setText('%02d' % number)
+        self.label_number.setText('%2d' % number)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.add_shadow_effect()
 

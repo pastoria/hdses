@@ -7,14 +7,13 @@ import resource_rc
 from PyQt5.QtWidgets import QApplication, QWidget, QDesktopWidget, QMessageBox, QGridLayout
 from PyQt5.QtCore import Qt, QFile, QCoreApplication, QVariant, QTimer, QUrl, QThread, pyqtSignal
 from PyQt5.uic import loadUi
-from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices
 from basewidget import BaseWidget
 from utility import get_font_avenir, load_combobox_options
 from panelwidget import MainPanelWidget
 from notreadywidget import NotReadyWidget
 from style import combobox_style_big
 
-MAX_PANEL = 35
+MAX_PANEL = 48
 
 
 # get row and column value by total number of panels
@@ -33,7 +32,7 @@ def get_max_row_col(max_panel):
 
 
 class MainWidget(QWidget):
-    def __init__(self):
+    def __init__(self, max_panel):
         super(MainWidget, self).__init__()
         loadUi('mainwidget.ui', self)
         self.m_flag = False
@@ -51,13 +50,14 @@ class MainWidget(QWidget):
         for option in options:
             self.comboBox.addItem('   ' + option, QVariant(option))
         self.comboBox.setPlaceholderText("   Select a Profile")
+        self.comboBox.view().setSpacing(2)
         self.comboBox.setCurrentIndex(-1)
         self.comboBox.currentIndexChanged.connect(
             lambda: self.change_option(self.comboBox.currentIndex()))
 
         self.gridLayout = QGridLayout(self.widget_middle)
 
-        max_row, max_col = get_max_row_col(MAX_PANEL)
+        max_row, max_col = get_max_row_col(max_panel)
         for i in range(max_row*max_col):
             row = i // max_col
             col = i % max_col
@@ -71,17 +71,17 @@ class MainWidget(QWidget):
         self.showMaximized()
 
     def start_all(self):
-        for i in range(self.gridLayout.count()):
-            widget = self.gridLayout.itemAt(i).widget()
-            if isinstance(widget, MainPanelWidget):
-                widget.start()
+        # for i in range(self.gridLayout.count()):
+        #     widget = self.gridLayout.itemAt(i).widget()
+        #     if isinstance(widget, MainPanelWidget):
+        #         widget.start()
         pass
 
     def cancel_all(self):
-        for i in range(self.gridLayout.count()):
-            widget = self.gridLayout.itemAt(i).widget()
-            if isinstance(widget, MainPanelWidget):
-                widget.cancel()
+        # for i in range(self.gridLayout.count()):
+        #     widget = self.gridLayout.itemAt(i).widget()
+        #     if isinstance(widget, MainPanelWidget):
+        #         widget.cancel()
         pass
 
     def change_option(self, index):
@@ -117,6 +117,10 @@ class MainWidget(QWidget):
 
 if __name__ == "__main__":
     app = QApplication([])
-    widget = MainWidget()
+    if len(sys.argv) > 1:
+        max_panel = int(sys.argv[1])
+    else:
+        max_panel = MAX_PANEL
+    widget = MainWidget(max_panel)
     widget.show()
     sys.exit(app.exec_())

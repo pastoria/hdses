@@ -28,6 +28,7 @@ class MainPanelWidget(BaseWidget):
         for option in options:
             self.comboBox.addItem('   ' + option, QVariant(option))
         self.comboBox.setPlaceholderText("   Select a Profile")
+        self.comboBox.view().setSpacing(2)
         self.comboBox.setCurrentIndex(-1)
         self.comboBox.setMaximumWidth(150)
         self.comboBox.currentIndexChanged.connect(
@@ -57,7 +58,7 @@ class MainPanelWidget(BaseWidget):
         self.progressBar.setValue(value)
 
     def set_font(self, font):
-        font.setPixelSize(20)
+        font.setPixelSize(24)
         self.label_number.setFont(font)
         font.setPixelSize(12)
         self.label_sn.setFont(font)
@@ -184,6 +185,7 @@ class MainPanelFrame(BaseFrame):
         self.comboBox.setPlaceholderText("   Select a Profile")
         self.comboBox.setMaximumWidth(500)
         self.comboBox.setMinimumHeight(26)
+        self.comboBox.view().setSpacing(2)
         self.comboBox.currentIndexChanged.connect(
             lambda: self.change_option(self.comboBox.currentIndex()))
         self.comboBox.setCurrentIndex(main_panel.get_current_option())

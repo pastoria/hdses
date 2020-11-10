@@ -10,6 +10,7 @@ import resource_rc
 import subprocess
 import json
 import redis
+from mainwidget import MainWidget
 
 
 class LoginThread(QThread):
@@ -180,8 +181,11 @@ class LoginWidget(QWidget):
         t.done.connect(self.login_complete)
         t.run()
 
+    def login_complete(self, errorcode):
+        main_widget = MainWidget()
+        main_widget.show()
+        self.close()
 
-    def login_complete(self, errorcode):        
         QApplication.restoreOverrideCursor()
         self.errorcode = errorcode
         if errorcode ==0:

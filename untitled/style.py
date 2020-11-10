@@ -132,6 +132,7 @@ combobox_style_big = """
 }
 
  QComboBox QAbstractItemView {
+    min-height: 40px;
     outline: 0px solid red;
     border: 1px solid rgba(143, 0, 255, 1);
     border-radius: 2px;

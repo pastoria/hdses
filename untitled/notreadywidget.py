@@ -34,7 +34,7 @@ class NotReadyWidget(BaseWidget):
         font.setPixelSize(24)
         self.label_number.setFont(font)
         self.label_title.setFont(font)
-        font.setPixelSize(14)
+        font.setPixelSize(16)
         self.label_desc.setFont(font)
 
     def create_frame(self, number, main_panel):
