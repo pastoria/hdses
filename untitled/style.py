@@ -186,11 +186,16 @@ QComboBox QScrollBar::sub-line::vertical{
     border:none;
 }
 """
-
+# MainPanelFrame
+# {
+#     border: 2px solid #35065a;
+# }
 mainpanelstyle = """
-    MainPanelFrame {
-        border: 2px solid #35065a;
+    MainPanelFrame
+    {
+        border: 1px solid #35065a;
     }
+
     #widget_info {background-color: #f4c64f;}
     #widget_status {background-color: #ffffff;}
     #label_1, #label_2, #label_3 {
@@ -209,7 +214,7 @@ mainpanelstyle = """
     QProgressBar::chunk {
         background-color: #2c56e8;
         border-radius: 3px;
-    }
+    }transparent
 """
 
 status_style_ready = """
@@ -336,4 +341,24 @@ QProgressBar::chunk {
 	background-color: rgba(130, 233, 94, 1);
 	border-radius: 1px;
 }
+"""
+
+# NotReadyFrame
+# {
+#     border: 1px solid #35065a;
+# }
+notreadystyle = """
+    NotReadyFrame
+    {
+        border: 1px solid #35065a;
+    }
+    QLabel {
+        Color: #ffffff;
+    }
+    #widget_up {
+        background: #909090;
+    }    
+    #widget_down {
+        background: #ffffff;
+    }
 """

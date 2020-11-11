@@ -26,5 +26,7 @@
         <file>images/Splash_BG_big.png</file>
         <file>images/LessButton_Gray.svg</file>
         <file>images/LessButton_Purple.svg</file>
+        <file>images/icon_green.svg</file>
+        <file>images/icon_red.svg</file>
     </qresource>
 </RCC>

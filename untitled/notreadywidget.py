@@ -7,22 +7,7 @@ from PyQt5.uic import loadUi
 from PyQt5.QtGui import QBitmap, QPainter, QColor, QPixmap, QCursor, QDesktopServices, QPaintEvent
 from utility import get_font_avenir
 from basewidget import BaseWidget, BaseFrame
-
-
-notreadystyle = """
-    NotReadyFrame {
-        border: 2px solid #35065a;
-    }   
-    QLabel {
-        Color: #ffffff;
-    }
-    #widget_up {
-        background: #909090;
-    }    
-    #widget_down {
-        background: #ffffff;
-    }
-"""
+from style import notreadystyle
 
 
 class NotReadyWidget(BaseWidget):
@@ -31,7 +16,7 @@ class NotReadyWidget(BaseWidget):
         self.set_font(get_font_avenir())
 
     def set_font(self, font):
-        font.setPixelSize(24)
+        font.setPixelSize(20)
         self.label_number.setFont(font)
         self.label_title.setFont(font)
         font.setPixelSize(16)

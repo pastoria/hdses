@@ -71,17 +71,17 @@ class MainWidget(QWidget):
         self.showMaximized()
 
     def start_all(self):
-        # for i in range(self.gridLayout.count()):
-        #     widget = self.gridLayout.itemAt(i).widget()
-        #     if isinstance(widget, MainPanelWidget):
-        #         widget.start()
+        for i in range(self.gridLayout.count()):
+            widget = self.gridLayout.itemAt(i).widget()
+            if isinstance(widget, MainPanelWidget):
+                widget.start()
         pass
 
     def cancel_all(self):
-        # for i in range(self.gridLayout.count()):
-        #     widget = self.gridLayout.itemAt(i).widget()
-        #     if isinstance(widget, MainPanelWidget):
-        #         widget.cancel()
+        for i in range(self.gridLayout.count()):
+            widget = self.gridLayout.itemAt(i).widget()
+            if isinstance(widget, MainPanelWidget):
+                widget.cancel()
         pass
 
     def change_option(self, index):

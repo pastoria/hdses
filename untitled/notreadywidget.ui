@@ -70,6 +70,9 @@
          <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,2,2,4">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">

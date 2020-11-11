@@ -30,6 +30,7 @@ class MainPanelWidget(BaseWidget):
         self.comboBox.setPlaceholderText("   Select a Profile")
         self.comboBox.view().setSpacing(2)
         self.comboBox.setCurrentIndex(-1)
+        self.comboBox.setMinimumHeight(22)
         self.comboBox.setMaximumWidth(150)
         self.comboBox.currentIndexChanged.connect(
             lambda: self.change_option(self.comboBox.currentIndex()))
@@ -58,7 +59,7 @@ class MainPanelWidget(BaseWidget):
         self.progressBar.setValue(value)
 
     def set_font(self, font):
-        font.setPixelSize(24)
+        font.setPixelSize(20)
         self.label_number.setFont(font)
         font.setPixelSize(12)
         self.label_sn.setFont(font)
@@ -88,14 +89,17 @@ class MainPanelWidget(BaseWidget):
         #     # self.comboBox.setStyleSheet(combobox_style_small)
 
     def start(self):
-        if self.status == STATUS_READY:
+        # for test
+        if self.status == STATUS_READY or self.status == STATUS_ERROR:
             self.status = STATUS_RUNNING
             self.change_status()
+            self.update_info()
 
     def cancel(self):
         if self.status == STATUS_RUNNING or self.status == STATUS_BAD_SECTORS:
             self.status = STATUS_ERROR
             self.change_status()
+            self.update_info()
 
     def change_status(self):
         status_dict = {
@@ -154,8 +158,7 @@ class MainPanelWidget(BaseWidget):
         style = combobox_style_error+combobox_style_small+status_style_error
         self.setStyleSheet(style)
         self.label_icon_r.setPixmap(QPixmap(':/images/Error.svg'))
-        self.label_status_r.setText('Error code: {0}'.format(self.info.get('error')))
-        self.pushButton.setIcon(QIcon(''))
+        self.pushButton.setIcon(QIcon(':/images/icon_red.svg'))
         self.label_progress.show()
         self.progressBar.show()
 
@@ -163,7 +166,7 @@ class MainPanelWidget(BaseWidget):
         style = combobox_style_success+combobox_style_small+status_style_success
         self.setStyleSheet(style)
         self.label_icon_r.setPixmap(QPixmap(':/images/Speed.svg'))
-        self.pushButton.setIcon(QIcon(''))
+        self.pushButton.setIcon(QIcon(':/images/icon_green.svg'))
         self.label_progress.hide()
         self.progressBar.show()
 
@@ -172,6 +175,7 @@ class MainPanelFrame(BaseFrame):
     def __init__(self, number, main_panel):
         super(MainPanelFrame, self).__init__('panelwidget.ui', number, main_panel)
         self.setStyleSheet(mainpanelstyle)
+        self.add_shadow_effect()
         self.pushButton.setIconSize(QSize(22, 22))
         self.pushButton.clicked.connect(self.start_cancel)
         # self.label_icon_l.setSize(QSize(20, 20))
@@ -183,6 +187,7 @@ class MainPanelFrame(BaseFrame):
         for option in options:
             self.comboBox.addItem('   ' + option, QVariant(option))
         self.comboBox.setPlaceholderText("   Select a Profile")
+        self.comboBox.setMinimumHeight(100)
         self.comboBox.setMaximumWidth(500)
         self.comboBox.setMinimumHeight(26)
         self.comboBox.view().setSpacing(2)
@@ -208,7 +213,7 @@ class MainPanelFrame(BaseFrame):
             self.main_panel.status = STATUS_ERROR
             self.main_panel.change_status()
             self.change_status(STATUS_ERROR)
-
+        self.update_info(self.main_panel.info, self.main_panel.status)
 
     def change_option(self, index):
         if index > -1:
@@ -272,7 +277,7 @@ class MainPanelFrame(BaseFrame):
         style = combobox_style_error+combobox_style_small+status_style_error
         self.setStyleSheet(style)
         self.label_icon_r.setPixmap(QPixmap(':/images/Error.svg'))
-        self.pushButton.setIcon(QIcon(''))
+        self.pushButton.setIcon(QIcon(':/images/icon_red.svg'))
         self.label_progress.show()
         self.progressBar.show()
 
@@ -280,7 +285,7 @@ class MainPanelFrame(BaseFrame):
         style = combobox_style_success+combobox_style_small+status_style_success
         self.setStyleSheet(style)
         self.label_icon_r.setPixmap(QPixmap(':/images/Speed.svg'))
-        self.pushButton.setIcon(QIcon(''))
+        self.pushButton.setIcon(QIcon(':/images/icon_green.svg'))
         self.label_progress.hide()
         self.progressBar.show()
 

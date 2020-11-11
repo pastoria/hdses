@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>306</width>
+    <width>300</width>
     <height>185</height>
    </rect>
   </property>
@@ -92,7 +92,7 @@ QProgressBar::chunk {
            <number>2</number>
           </property>
           <property name="topMargin">
-           <number>5</number>
+           <number>12</number>
           </property>
           <property name="rightMargin">
            <number>2</number>
@@ -105,8 +105,11 @@ QProgressBar::chunk {
             <property name="leftMargin">
              <number>15</number>
             </property>
-            <property name="rightMargin">
+            <property name="topMargin">
              <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
             </property>
             <item>
              <widget class="QLabel" name="label_number">
@@ -148,6 +151,12 @@ QProgressBar::chunk {
             </item>
             <item>
              <widget class="QComboBox" name="comboBox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="styleSheet">
                <string notr="true">QComboBox {  
      border: 0px solid rgba(204, 204, 204, 1);
@@ -431,7 +440,7 @@ QProgressBar::chunk {
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
-              <height>5</height>
+              <height>2</height>
              </size>
             </property>
            </spacer>

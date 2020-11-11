@@ -3,7 +3,7 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QFrame, QGraphicsDropShadowEffect, QDesktopWidget, QMessageBox
 from PyQt5.QtCore import Qt, QFile, QCoreApplication, QTimer, QUrl, QThread, pyqtSignal, QPoint
 from PyQt5.uic import loadUi
-from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices, QBitmap, QPen
+from PyQt5.QtGui import QPainter, QColor, QPixmap, QCursor, QDesktopServices, QBitmap, QPen, QBrush
 
 FLOAT_PANEL_RATIO = 1.5
 
@@ -62,15 +62,16 @@ class BaseFrame(QFrame):
         self.number = number
         self.main_panel = main_panel
         self.label_number.setText('%2d' % number)
+        # self.setAttribute(Qt.WA_TranslucentBackground)
         self.setWindowFlags(Qt.FramelessWindowHint)
-        self.add_shadow_effect()
+        # self.add_shadow_effect()
 
     def paintEvent(self, QPaintEvent):
         self.bmp = QBitmap(self.size())
         self.bmp.fill()
         painter = QPainter(self.bmp)
-        painter.setPen(Qt.NoPen)
-        painter.setBrush(Qt.black)
+        painter.setPen(QColor(53, 6, 90))
+        painter.setBrush(QBrush(QColor(53, 6, 90)))
         painter.drawRoundedRect(self.bmp.rect(), 5, 5)
         painter.setRenderHint(QPainter.Antialiasing)
         self.setMask(self.bmp)
