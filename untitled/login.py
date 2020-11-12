@@ -25,9 +25,9 @@ class LoginThread(QThread):
     def run(self):
         import time
         ret = 1
-        fn = os.path.join(os.environ['ATHENAHOME'], 'anthenacmc')
+        fn = os.path.join(os.environ['DSEHOME'], 'anthenacmc')
         if os.path.exists(fn):
-            p = subprocess.Popen([fn, '-login', '-username={}'.format(self.username), '-password={}'.format(self.password)], cwd=os.environ['ATHENAHOME'])
+            p = subprocess.Popen([fn, '-login', '-username={}'.format(self.username), '-password={}'.format(self.password)], cwd=os.environ['DSEHOME'])
             ret = p.wait()
         else:
             ret = 2
@@ -84,7 +84,7 @@ class LoginWidget(QWidget):
         self.pushButton_mini.clicked.connect(self.showMinimized)
 
         # Chris: load version
-        fn = os.path.join(os.getenv('ATHENAHOME', os.path.split(__file__)[0]), 'clientstatus.json')
+        fn = os.path.join(os.getenv('DSEHOME', os.path.split(__file__)[0]), 'clientstatus.json')
         if os.path.exists(fn):
             with open(fn) as f:
                 d = json.load(f)
